@@ -1,0 +1,35 @@
+সংযোগ (Wiring)
+
+MQ-2 সেন্সরের AO (Analog Out) → Arduino Nano এর A0
+VCC → 5V
+GND → GND
+Buzzer বা LED → D8 (সিরিজে 220Ω রেজিস্টর দিলে ভালো)
+
+
+
+Arduino Code (Gas Detector)
+
+
+int gasSensor = A0;     // MQ-2 Analog pin
+int buzzer = 8;         // Buzzer/LED pin
+int gasValue;           // Variable to store sensor value
+int threshold = 400;    // Sensitivity threshold (adjust as needed)
+
+void setup() {
+  pinMode(buzzer, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  gasValue = analogRead(gasSensor);
+  Serial.print("Gas Value: ");
+  Serial.println(gasValue);
+
+  if (gasValue > threshold) {
+    digitalWrite(buzzer, HIGH);  // Alarm ON
+  } else {
+    digitalWrite(buzzer, LOW);   // Alarm OFF
+  }
+
+  delay(500);
+}
