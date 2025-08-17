@@ -1,31 +1,33 @@
-int gasSensorA = A0;   // MQ-2 AO -> A0
-int gasSensorD = 2;    // MQ-2 DO -> D2
-int buzzer     = 8;    // Buzzer -> D8
+//MD Saeyd Hossain 
+//Electrical & Elelctronic Engineer
+// University of global Village
 
-int gasValue;          // Analog value storage
-int threshold = 250;   // Adjustable sensitivity for analog
+
+int gasSensorA = A0;   
+int gasSensorD = 2;    
+int buzzer     = 8;   
+
+int gasValue;         
+int threshold = 400;   
 
 void setup() {
-  pinMode(gasSensorD, INPUT);   // Digital pin
-  pinMode(buzzer, OUTPUT);      // Buzzer pin
+  pinMode(gasSensorD, INPUT);  
+  pinMode(buzzer, OUTPUT);     
   Serial.begin(9600);
 }
 
 void loop() {
-  // ---------- Analog Reading ----------
-  gasValue = analogRead(gasSensorA);
+ gasValue = analogRead(gasSensorA);
   Serial.print("Analog Gas Value: ");
   Serial.println(gasValue);
-
-  // ---------- Digital Reading ----------
   int gasState = digitalRead(gasSensorD);
 
   if (gasValue > threshold || gasState == LOW) { 
-    digitalWrite(buzzer, HIGH);   // Alarm ON
-    Serial.println("⚠️ Gas Detected!");
+    digitalWrite(buzzer, HIGH);   
+    Serial.println("Gas Detected!");
   } else {
-    digitalWrite(buzzer, LOW);    // Alarm OFF
-    Serial.println("✅ No Gas");
+    digitalWrite(buzzer, LOW);  
+    Serial.println("No Gas");
   }
 
   Serial.println("--------------------");
