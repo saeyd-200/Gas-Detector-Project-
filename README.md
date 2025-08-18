@@ -1,8 +1,8 @@
-MQ-2 Gas Detector with Arduino UNO
+# MQ-2 Gas Detector with Arduino UNO
 
 This project uses the MQ-2 gas sensor with an Arduino UNO to detect flammable gases (LPG, butane, propane, methane, alcohol, smoke) and trigger an alarm using a buzzer. Both analog and digital outputs of the sensor are used for demonstration.
 
-Features
+# Features
 
 Reads analog values from MQ-2 (gas concentration level).
 
@@ -12,19 +12,19 @@ Activates a buzzer alarm when gas concentration exceeds safe level.
 
 Prints live sensor data and status on Serial Monitor.
 
-Components Used
+# Components Used
 
-# Arduino UNO
+Arduino UNO
 
-# MQ-2 Gas Sensor
+MQ-2 Gas Sensor
 
-# Active Buzzer (5V)
+Active Buzzer (5V)
 
-# Jumper wires
+Jumper wires
 
-# Breadboard
+Breadboard
 
-How It Works
+# How It Works
 
 MQ-2 continuously senses the air for gases.
 
@@ -36,7 +36,7 @@ If either analog threshold is crossed or digital pin indicates gas, the buzzer a
 
 Serial Monitor shows live readings and status updates.
 
-Applications
+# Applications
 
 LPG gas leakage alarm
 
